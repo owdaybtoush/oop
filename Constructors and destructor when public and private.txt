@@ -1,0 +1,91 @@
+#include <iostream>
+
+using namespace std;
+class human {
+    public:
+    int p;//use in void show calculate zakat
+    int mo;// cin money  in main 
+    int oo; //use in void show calcukat taxes
+    int name ;
+    void show(){
+        // member function can access private
+
+        cout<<"hello and welcom in oop"<<endl;
+        p=mo*za;
+        oo=mo*ta;
+        cout<<"welcom mr "<<name<<endl;
+        cout <<"your zakat "<<p<<"$"<<endl;
+      cout <<"your taxes "<<oo<<"$"<<endl;
+   //   showpriv();
+
+
+    }
+    private : 
+    double za=0.25;
+    double ta=0.07;
+     void showpriv(){
+        cout<<"hello and welcom in oop with private";
+    
+    }
+};
+
+int main()
+{
+human h;
+cout << "enter your money\n";
+cin >> h.mo;
+
+cout <<"enter your name\n";
+cin >> h.name;
+//h.u=3;
+
+h.show();
+//h.showpriv();
+
+    return 0;
+}
+
+    
+ex2
+// C++ program to demonstrate public
+// access modifier
+  
+#include <iostream>
+using namespace std;
+  
+// class definition
+class Circle {
+public:
+    double Radius;
+  
+    void compute_area()
+    
+    {
+        double compute_area1= pi * Radius * Radius;
+        cout << "Radius is: " << Radius << "\n";
+    cout << "Area is: " << compute_area1;
+    }
+    
+    Circle(){
+Radius=6;
+}
+~Circle(){
+    cout<<"\n  the Destructors automatically call when the life of an object is ended";
+}
+private:
+double pi=3.14;
+};
+  
+// main function
+int main()
+{
+    Circle obj;
+  obj.compute_area();
+    // accessing public data member outside class
+    //obj.radius = 5.5;
+  
+    
+    return 0;
+}
+
+

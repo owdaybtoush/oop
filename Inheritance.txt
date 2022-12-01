@@ -1,0 +1,84 @@
+
+#include <iostream>
+
+using namespace std;
+
+class car{
+    public:
+  string brand;
+  string model;
+  int year;
+  static int count;
+};
+  class taxi: public car // Inheritance copy of car the taxi (car base taxi derived )
+  {
+      private:
+      
+      string color;
+      float Identify;
+      
+      public:
+      void set_color(string co)
+      {
+          color=co;
+          
+      }
+      void set_Identify(float ide)
+      {
+          Identify=ide;
+      }
+      
+      string get_color()
+      {
+          return color;
+      }
+      float get_Identify()
+      {
+          return 1.5+Identify;
+      }
+      
+      
+  
+  };
+ // We can add variables by separating them with a comma here
+
+int car::count=0;
+
+int main()
+{car myCar1, myCar2 ,myCar3;
+taxi tx1 ,tx2;
+tx1.brand="toyota";
+tx1.model="camry";
+tx1.year=2022;
+tx1.count++;
+tx1.set_color("green");
+tx1.set_Identify(20);
+cout<<tx1.brand<<"  "<<tx1.model<<"  " <<tx1.year<<"  "<<tx1.get_color()<<"  "<<tx1.get_Identify()<< endl;
+//<<tx1.get_color<<tx1.get_identofy;
+// Put data into the first structure
+myCar1.brand = "BMW";
+myCar1.model = "X5";
+myCar1.year = 1999;
+myCar1.count++;
+
+// Put data into the second structure
+myCar2.brand = "Ford";
+myCar2.model = "Mustang";
+myCar2.year = 1969;
+myCar2.count++;
+
+myCar3.brand = "opel";
+myCar3.model = "omega";
+myCar3.year = 2016;
+myCar3.count++;
+
+// Print the structure members
+cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year <<endl;
+cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
+cout << myCar3.brand << " " << myCar3.model << " " << myCar3.year << "\n";
+
+cout<<" count= "<< tx1.count<<"\n";
+//myCar2.getcountcars();
+    return 0;
+}
+

@@ -1,0 +1,148 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+// Output the value of food (Pizza)
+int x= 10;  // A x variable of type integer
+int y=20;
+int z=x;
+int* ptrx = &x;    // A pointer variable, with the name ptr, that stores the address of food
+
+// Output the value of food (Pizza)
+cout <<"x " << x << "\n";
+cout <<"y "<< y<<"\n";
+
+// Output the memory address of food (0x6dfed4)
+cout <<"&x "<< &x << "\n";
+cout <<"&y "<< &y << "\n";
+
+// Output the memory address of food with the pointer (0x6dfed4)
+cout << "ptrx "<<ptrx << "\n";
+cout<< "*ptrx "<<*ptrx<<"\n";
+
+//swap
+
+int *ptry = &y;
+cout<<"*ptrx "<<ptry<<"\n";
+*ptrx=*ptry;
+*ptry=z;
+cout<<"* ptrx "<<*ptrx<<"\n";
+cout<<"*ptry "<<*ptry<<endl;
+
+
+cout<<"x "<<x<<endl;
+cout<<"y "<<y<<endl;
+
+
+    return 0;
+}
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+EX1
+#include <iostream>
+//division subtraction multiplication addition 
+using namespace std;
+class calculator {
+    public:
+    static int  addition(int num1 ,int num2){
+        return num1+num2;
+    }
+    static int multiplication (int num1  ,int num2){
+                return num1*num2;
+
+    }
+    static int subtraction(int num1  ,int num2){
+                        return num1-num2;
+
+    
+    }
+    static double division (int num1  ,int num2){
+                                return num1/num2;
+
+    }
+
+};
+
+int main()
+{
+    calculator c1;
+   cout<< calculator ::addition(3,5)<<endl;//:: scop opretor mean addition follow calculator class
+   cout<<calculator ::multiplication(6,7)<<endl;
+   cout<<calculator::subtraction(7,5)<<endl;
+   cout<<calculator::division(19,6)<<endl;
+   cout<<"****************************"<<endl;
+   cout<< c1.addition(9,7)<<endl;
+   cout<<c1.multiplication(5,8)<<endl;
+   cout<<c1.subtraction(6,2)<<endl;
+   cout<<c1.division(24,5)<<endl;
+   
+    return 0;
+}
+
+EX2
+
+
+#include <iostream>
+
+using namespace std;
+
+class car{
+    public:
+  string brand;
+  string model;
+  int year;
+  static int count;
+  
+  
+} ; // We can add variables by separating them with a comma here
+
+int car::count=0;
+
+int main()
+{car myCar1, myCar2 ,myCar3;
+// Put data into the first structure
+myCar1.brand = "BMW";
+myCar1.model = "X5";
+myCar1.year = 1999;
+myCar1.count++;
+
+// Put data into the second structure
+myCar2.brand = "Ford";
+myCar2.model = "Mustang";
+myCar2.year = 1969;
+myCar2.count++;
+
+myCar3.brand = "opel";
+myCar3.model = "omega";
+myCar3.year = 2016;
+myCar3.count++;
+
+// Print the structure members
+cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year <<endl;
+cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
+cout << myCar3.brand << " " << myCar3.model << " " << myCar3.year << "\n";
+
+cout<<" count= "<< myCar1.count<<"\n";
+//myCar2.getcountcars();
+    return 0;
+}
+
+
+
+

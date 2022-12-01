@@ -1,0 +1,147 @@
+#include<iostream>
+using namespace std;
+
+class X
+{
+public:
+	void h(float f) {cout<<f<<endl;}
+	int a;
+};
+
+class Y: public X
+{
+public:
+	void h(char c[]) {cout<<c<<endl;}
+	void print() { cout<<a<<":"<<X::a<<endl;}
+	int a;
+};
+
+int main()
+{
+	Y y;
+	y.a=10;   // assign 10 to Y's a
+	y.X::a=20;// assign 20 to X's a
+	y.print();
+//===========================================
+	y.h("Ahmed"); // calling Y's f()
+	//y.h(70.7);    //ERROR:
+	y.X::h(70.7); //OK
+	return 0;
+}
+
+//Dominance +derived
+#include <iostream>
+
+using namespace std;
+
+class car{
+    public:
+  string brand;
+  string model;
+  int year;
+  void VinNo(int c) {cout<<c<<endl;}
+  static int count;
+};
+  class taxi: public car // Inheritance copy of car the taxi (car base taxi derived )
+  {
+      private:
+      
+      string color;
+      float Identify;
+      
+      public:
+      void VinNo(string v) {cout<<v<<endl;}
+      
+      void set_color(string co)
+      {
+          color=co;
+          
+      }
+      void set_Identify(float ide)
+      {
+          Identify=ide;
+      }
+      
+      string get_color()
+      {
+          return color;
+      }
+      float get_Identify()
+      {
+          return 1.5+Identify;
+      }
+      
+  };
+  
+  class taxiF : public taxi{
+      public:
+      
+      string drivername;
+      int drivernumber;
+      int distance;
+      
+  };
+ // We can add variables by separating them with a comma here
+
+int car::count=0;
+
+int main()
+{car myCar1, myCar2 ,myCar3;
+taxi tx1 ,tx2;
+taxiF TF1,TF2;
+tx1.brand="toyota";
+tx1.model="camry";
+tx1.year=2022;
+tx1.count++;
+tx1.set_color("green");
+tx1.set_Identify(20);
+//tx1.VinNo=120130;ERROR
+tx1.car::VinNo(120160);//Dominance 
+tx1.VinNo("130xcxx");
+//tx1.car::VinNo('x');
+
+cout<<tx1.brand<<"  "<<tx1.model<<"  " <<tx1.year<<"  "<<tx1.get_color()<<"  "<<tx1.get_Identify();
+cout<<"VinNo 1",tx1.car::VinNo(120160);cout<<" ";cout<<"VinNo2 ";tx1.VinNo("130xcxx");
+//<<tx1.get_color<<tx1.get_identofy;
+// Put data into the first structure
+TF1.brand="ford";
+TF1.model="FUSION";
+TF1.year=2021;
+TF1.count++;
+TF1.set_color("SLVER");
+TF1.drivername="ALI ISSA";
+TF1.drivernumber=983102457;
+TF1.distance=13700;
+cout<<TF1.brand<<"  "<<TF1.model<<"  " <<TF1.year<<"  "<<TF1.get_color()<<"  "<<TF1.drivername<<" "<<TF1.drivernumber<<" "<<TF1.distance<< endl;
+TF1.car::VinNo(1515);//derived
+
+
+myCar1.brand = "BMW";
+myCar1.model = "X5";
+myCar1.year = 1999;
+myCar1.count++;
+
+// Put data into the second structure
+myCar2.brand = "Ford";
+myCar2.model = "Mustang";
+myCar2.year = 1969;
+myCar2.count++;
+
+myCar3.brand = "opel";
+myCar3.model = "omega";
+myCar3.year = 2016;
+myCar3.count++;
+
+// Print the structure members
+cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year <<endl;
+cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
+cout << myCar3.brand << " " << myCar3.model << " " << myCar3.year << "\n";
+
+cout<<" count= "<< tx1.count<<"\n";
+//myCar2.getcountcars();
+    return 0;
+}
+
+
+
+

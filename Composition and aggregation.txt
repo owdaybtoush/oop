@@ -1,0 +1,152 @@
+aggregation
+#include<iostream>
+using namespace std;
+class Door
+{
+public:
+	Door(){state=0;}
+	Door(int s) {state=s;}
+	void setState(int s) {state=s;}
+	int  getState() {return state;}
+	void print()
+	{
+		if (state)
+			cout<<"Open"<<endl;
+		else
+			cout<<"Close"<<endl;
+	}
+	~Door() {cout<<"Door's Destructor"<<endl;}
+private:
+	int state;
+};
+
+class Room
+{
+public:
+	Room()
+    {l=w=0;}
+	Room(int ll, int ww, int state):door(state)
+	{ l=ll; w=ww;}
+	void setLW(int ll, int ww)
+	{
+		l=ll; w=ww;
+	}
+    int getL() {return l;}
+    int getW() {return w;}
+    void openDoor() {door.setState(1);}
+    void closeDoor() {door.setState(0);}
+    void print()
+    {
+    	cout<<"Length: "<<l<<endl;
+    	cout<<"Width: "<<w<<endl;
+    	door.print();
+    }
+
+    ~Room(){cout<<"Room's Destructor"<<endl;}
+
+private:
+     int l,w;
+     Door door;
+};
+
+int main()
+{
+	Room r (5,3,0);
+	r.print();
+
+	r.openDoor();
+	r.setLW(10,5);
+	r.print();
+
+ //r.door.setState(1);// ERROR:
+
+    return 0;
+}
+//ex2
+
+#include <iostream>
+using namespace std;
+
+ // We can add variables by separating them with a comma here
+ class Engine {
+     public:
+	//Engine(){state=0;} //constract where the state false 
+	Engine(int s) {state=s;} // the states private to return states eqal S
+	void setState(int s) {state=s;} 
+//	int  getState() {return state;}
+	void print()
+	{
+		if (state) //if true open else false 
+			cout<<"Engine work"<<endl;
+		else
+			cout<<"Engine not work"<<endl;
+	}
+	~Engine() {cout<<"Engine's Destructor"<<endl;}
+private:
+	int state; //0 or 1 true or false 
+
+ };
+ //class car 
+ class CAR {
+    public:
+  string brand;
+  string model;
+  int year;
+  static int count;
+ CAR(int   state ):engine(state)
+ {}
+    void openEngine() {engine.setState(1);}//work
+    void closeEngine() {engine.setState(0);}//not work
+    void print()
+    {
+    
+    	engine.print();
+    }
+
+    ~CAR(){cout<<"car's Destructor"<<endl;}
+    private:
+     Engine engine;
+  
+};
+ 
+int CAR::count=0;
+int main()
+{ CAR myCar1(0),myCar2(0),myCar3(0),myCar4(0);
+myCar4=myCar1;//copy constract
+//, myCar2 ,myCar3;
+// Put data into the first structure
+myCar1.brand = "BMW";
+myCar1.model = "X5";
+myCar1.year = 1999;
+myCar1.openEngine();
+myCar1.print();
+myCar1.count++;
+cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year <<endl<<endl;
+
+// Put data into the second structure
+myCar2.brand = "Ford";
+myCar2.model = "Mustang";
+myCar2.year = 1969;
+myCar2.closeEngine();
+myCar2.print();
+myCar2.count++;
+cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << endl<<"\n";
+
+myCar3.brand = "opel";
+myCar3.model = "omega";
+myCar3.year = 2016;
+myCar2.closeEngine();
+myCar2.print();
+myCar3.count++;
+
+// Print the structure members
+cout << myCar3.brand << " " << myCar3.model << " " << myCar3.year << endl<<"\n";
+
+myCar4.print();//copy constract
+myCar4.count++;
+cout<<" count= "<< myCar1.count<<"\n"<<"\n";
+//myCar2.getcountcars();
+    return 0;
+}
+
+
